@@ -16,6 +16,7 @@ function update_setup_cfg() {
 }
 
 function update_module() {
+    rm -rf .git
     mv python_skeleton ${module_name}
     find . -type f | xargs sed -i "s/python_skeleton/${module_name}/g"
     find . -type f | xargs sed -i "s/python-skeleton/${project_name}/g"
