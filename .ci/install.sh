@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -eoxu pipefail
 
 # install test dependencies
 pip install --upgrade pip

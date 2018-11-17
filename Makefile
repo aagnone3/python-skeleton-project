@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := help
 PWD ?= $(PWD)
 
-MODULE_NAME = $(shell grep "module_name =" setup.cfg | head -n1 | cut -d= -f2 | sed 's/["\s ]//g')
+MODULE_NAME = $(shell grep "module_name =" setup.cfg | head -n1 | cut -d= -f2 | sed 's/[" ]//g')
 VERSION_FN = ${MODULE_NAME}/version.py
 
 help:
@@ -17,6 +17,7 @@ help:
 .PHONY: clean
 clean:
 	rm -rf build/* dist/* *egg-info*
+	find . -name __pycache__ | xargs rm -rf
 
 .PHONY: build
 build: clean
@@ -43,4 +44,4 @@ pypi: build
 
 .PHONY: test
 test:
-	PYTHONPATH=${PYTHONPATH}:${PWD}/${MODULE_NAME} py.test -v
+	PYTHONPATH=${PYTHONPATH}:${PWD}/${MODULE_NAME} py.test -v --pdb

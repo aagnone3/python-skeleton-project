@@ -7,9 +7,9 @@ env:
     global:
         - TEST_DIR=/tmp/module_testing
         - |
-          REPO=$(grep "friendly_name =" setup.cfg | head -n1 | cut -d= -f2 | sed 's/["\s ]//g')
+          REPO=$(grep "friendly_name =" setup.cfg | head -n1 | cut -d= -f2 | sed 's/\s//g' | sed 's/"//g')
         - |
-          MODULE=$(grep "module_name =" setup.cfg | head -n1 | cut -d= -f2 | sed 's/["\s ]//g')
+          MODULE=$(grep "module_name =" setup.cfg | head -n1 | cut -d= -f2 | sed 's/\s//g' | sed 's/"//g')
 
 # TODO install in a Docker container
 addons:
@@ -18,14 +18,14 @@ addons:
             - libexempi3
 
 install:
-    - source .travis/install.sh
+    - bash .ci/install.sh
 
 script:
-    - bash .travis/test.sh
+    - bash .ci/test.sh
 
 after_success:
-    - source .travis/upload_test_coverage.sh
-    - source .travis/generate_docs.sh
+    - bash .ci/upload_test_coverage.sh
+    - bash .ci/generate_docs.sh
 
 notifications:
     email:

@@ -27,15 +27,25 @@ def get_version(module_name):
 def get_data_files():
     data_files = ['README.rst']
     if path.isdir("conf"):
-        data_files.append([
-            path.join("conf", fn)
-            for fn in glob(path.join("conf", "*"))
-        ])
+        data_files.extend(glob(path.join("conf", "*")))
     return data_files
+
+
+def get_entry_points():
+    cfg = ConfigParser()
+    cfg.read("setup.cfg")
+    return {
+        "console_scripts": list(filter(
+            lambda s: len(s) > 0,
+            cfg.get("entry_points", "console_scripts").split('\n')
+        ))
+    }
+
 
 
 package_info = get_package_info()
 module_name = package_info["module_name"]
+print(get_data_files())
 
 setup(
     name=package_info["friendly_name"],
@@ -52,6 +62,7 @@ setup(
     author_email=package_info["author_email"],
     packages=find_packages(exclude=['*.test', 'test']),
     install_requires=get_requirements(),
+    entry_points=get_entry_points(),
     zip_safe=False,
     data_files=[('share/{}'.format(module_name), get_data_files())]
 )

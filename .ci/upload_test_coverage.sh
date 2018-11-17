@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -eoxu pipefail
 
 COVERAGE_FILE=.coverage
 CODECOV_TOKEN=8a766be5-dd0a-4879-a1fc-8e2ff4ff4d26
