@@ -10,8 +10,6 @@ env:
           REPO=$(grep "friendly_name\":" setup.json | head -n1 | cut -d ':' -f2 | sed 's/[" ,]//g')
         - |
           MODULE=$(grep "module_name\":" setup.json | head -n1 | cut -d ':' -f2 | sed 's/[" ,]//g')
-        - |
-          AUTHOR=$(grep "author_email\":" setup.json | head -n1 | cut -d ':' -f2 | sed 's/[" ,]//g')
 
 # TODO install in a Docker container
 addons:
@@ -26,13 +24,12 @@ script:
     - bash .ci/test.sh
 
 after_success:
-    - echo "Author: ${AUTHOR}"
     - bash .ci/upload_test_coverage.sh
     - bash .ci/generate_docs.sh
 
 notifications:
     email:
-        on_success: always
+        on_success: change
         on_failure: always
 
 deploy:
