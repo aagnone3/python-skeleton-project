@@ -33,7 +33,9 @@ notifications:
     email:
         recipients:
             - |
-              ${AUTHOR}
+              MODULE=$(grep "module_name\":" setup.json | head -n1 | cut -d ':' -f2 | sed 's/[" ,]//g')
+            - |
+              AUTHOR=$(grep "author_email\":" setup.json | head -n1 | cut -d ':' -f2 | sed 's/[" ,]//g')
         on_success: always
         on_failure: always
 
