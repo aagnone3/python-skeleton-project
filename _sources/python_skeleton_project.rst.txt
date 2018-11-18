@@ -1,0 +1,23 @@
+python\_skeleton\_project package
+=================================
+
+.. automodule:: python_skeleton_project
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+
+    python_skeleton_project.tools
+
+Submodules
+----------
+
+.. toctree::
+
+   python_skeleton_project.greet_world
+   python_skeleton_project.version
+

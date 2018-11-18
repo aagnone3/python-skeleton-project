@@ -1,0 +1,7 @@
+python\_skeleton\_project.greet\_world module
+=============================================
+
+.. automodule:: python_skeleton_project.greet_world
+    :members:
+    :undoc-members:
+    :show-inheritance:

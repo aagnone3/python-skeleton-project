@@ -1,0 +1,7 @@
+python_skeleton_project
+=======================
+
+.. toctree::
+   :maxdepth: 100
+
+   python_skeleton_project
