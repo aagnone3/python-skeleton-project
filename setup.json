@@ -1,0 +1,15 @@
+{
+    "package_info": {
+        "friendly_name": "python-skeleton-project",
+        "module_name": "python_skeleton_project",
+        "description": "Skeleton python application",
+        "url": "https://github.com/aagnone3/python-skeleton-project",
+        "author": "Anthony Agnone",
+        "author_email": "anthonyagnone@gmail.com"
+    },
+    "entry_points": {
+        "console_scripts": [
+            "hello_world=python_skeleton_project.tools.hello_world:main"
+        ]
+    }
+}

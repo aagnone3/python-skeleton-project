@@ -1,12 +1,12 @@
+import json
 from os import path
 from glob import glob
 from setuptools import setup, find_packages
-from configparser import ConfigParser
 
 
 def get_package_info():
-    cfg = ConfigParser()
-    cfg.read("setup.cfg")
+    with open("setup.json", 'r') as fp:
+        cfg = json.load(fp)
     return cfg["package_info"]
 
 
@@ -32,24 +32,18 @@ def get_data_files():
 
 
 def get_entry_points():
-    cfg = ConfigParser()
-    cfg.read("setup.cfg")
-    return {
-        "console_scripts": list(filter(
-            lambda s: len(s) > 0,
-            cfg.get("entry_points", "console_scripts").split('\n')
-        ))
-    }
-
+    with open("setup.json") as fp:
+        cfg = json.load(fp)
+    return cfg.get("entry_points", {})
 
 
 package_info = get_package_info()
 module_name = package_info["module_name"]
-print(get_data_files())
+version = get_version(module_name)
 
 setup(
     name=package_info["friendly_name"],
-    version=get_version(package_info["module_name"]),
+    version=version,
     description=package_info["description"],
     long_description=package_info.get("long_description", package_info["description"]),
     classifiers=[

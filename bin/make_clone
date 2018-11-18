@@ -7,19 +7,22 @@ project_name=${1}
 module_name=${2}
 project_dir=../${project_name}
 
+old_project_name=python-skeleton-project-project
+old_module_name=python_skeleton_project_project
+
 # TODO detect OSX and alias sed
 
-function update_setup_cfg() {
+function update_setup() {
     # no need to replace text related to ${project_name} and ${module_name} here.
     # the replacement will happen in update_module()
-    sed -i "s/description = .*$/description = TODO/g" setup.cfg
+    sed -i "s/description = .*$/description = TODO/g" setup.json
 }
 
 function update_module() {
     rm -rf .git
-    mv python_skeleton ${module_name}
-    find . -type f | xargs sed -i "s/python_skeleton/${module_name}/g"
-    find . -type f | xargs sed -i "s/python-skeleton/${project_name}/g"
+    mv ${old_module_name} ${module_name}
+    find . -type f | xargs sed -i "s/${old_module_name}/${module_name}/g"
+    find . -type f | xargs sed -i "s/${old_project_name}/${project_name}/g"
 }
 
 function update_readme() {
@@ -38,7 +41,7 @@ cp -r . ${project_dir}
 pushd ${project_dir}
 make clean
 
-update_setup_cfg
+update_setup
 update_module
 update_readme
 

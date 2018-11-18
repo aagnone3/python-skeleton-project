@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := help
 PWD ?= $(PWD)
 
-MODULE_NAME = $(shell grep "module_name =" setup.cfg | head -n1 | cut -d= -f2 | sed 's/[" ]//g')
+MODULE_NAME = $(shell grep "module_name\":" setup.json | head -n1 | cut -d ':' -f2 | sed 's/[" ,]//g')
 VERSION_FN = ${MODULE_NAME}/version.py
 
 help:
@@ -40,7 +40,7 @@ pypi_test: build
 
 .PHONY: pypi
 pypi: build
-	twine upload dist/*
+	twine upload --verbose dist/*
 
 .PHONY: test
 test:

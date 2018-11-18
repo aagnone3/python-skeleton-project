@@ -1,6 +1,6 @@
 import pytest
 
-from python_skeleton.greet_world import greet_world
+from python_skeleton_project.greet_world import greet_world
 
 
 @pytest.mark.parametrize("descriptor", [
