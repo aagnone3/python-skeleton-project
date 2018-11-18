@@ -32,8 +32,9 @@ after_success:
 notifications:
     email:
         recipients:
-            - ${AUTHOR}
-        on_success: never
+            - |
+              ${AUTHOR}
+        on_success: always
         on_failure: always
 
 deploy:
