@@ -7,9 +7,9 @@ env:
     global:
         - TEST_DIR=/tmp/module_testing
         - |
-          REPO=$(grep "friendly_name =" setup.cfg | head -n1 | cut -d= -f2 | sed 's/\s//g' | sed 's/"//g')
+          REPO=$(grep "friendly_name\":" setup.json | head -n1 | cut -d ':' -f2 | sed 's/[" ,]//g')
         - |
-          MODULE=$(grep "module_name =" setup.cfg | head -n1 | cut -d= -f2 | sed 's/\s//g' | sed 's/"//g')
+          MODULE=$(grep "module_name\":" setup.json | head -n1 | cut -d ':' -f2 | sed 's/[" ,]//g')
 
 # TODO install in a Docker container
 addons:
@@ -31,7 +31,7 @@ notifications:
     email:
         recipients:
             - |
-              MODULE=$(grep "author_email =" setup.cfg | head -n1 | cut -d= -f2 | sed 's/["\s ]//g')
+              $(grep "author_email\":" setup.json | head -n1 | cut -d ':' -f2 | sed 's/[" ,]//g')
         on_success: never
         on_failure: always
 
