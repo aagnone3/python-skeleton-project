@@ -32,15 +32,6 @@ after_success:
 
 notifications:
     email:
-        recipients:
-            - anthonyagnone@gmail.com
-            - echo $(grep "author_email\":" setup.json | head -n1 | cut -d ':' -f2 | sed 's/[" ,]//g')
-            - |
-              grep "author_email\":" setup.json | head -n1 | cut -d ':' -f2 | sed 's/[" ,]//g'
-            - |
-              MODULE=$(grep "author_email\":" setup.json | head -n1 | cut -d ':' -f2 | sed 's/[" ,]//g')
-            - |
-              AUTHOR=$(grep "author_email\":" setup.json | head -n1 | cut -d ':' -f2 | sed 's/[" ,]//g')
         on_success: always
         on_failure: always
 
