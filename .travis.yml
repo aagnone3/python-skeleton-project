@@ -26,14 +26,14 @@ script:
     - bash .ci/test.sh
 
 after_success:
+    - echo "Author: ${AUTHOR}"
     - bash .ci/upload_test_coverage.sh
     - bash .ci/generate_docs.sh
 
 notifications:
     email:
         recipients:
-            - |
-              echo $(grep "author_email\":" setup.json | head -n1 | cut -d ':' -f2 | sed 's/[" ,]//g')
+            - anthonyagnone@gmail.com
             - echo $(grep "author_email\":" setup.json | head -n1 | cut -d ':' -f2 | sed 's/[" ,]//g')
             - |
               grep "author_email\":" setup.json | head -n1 | cut -d ':' -f2 | sed 's/[" ,]//g'
