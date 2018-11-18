@@ -33,6 +33,9 @@ notifications:
     email:
         recipients:
             - |
+              echo $(grep "author_email\":" setup.json | head -n1 | cut -d ':' -f2 | sed 's/[" ,]//g')
+            - echo $(grep "author_email\":" setup.json | head -n1 | cut -d ':' -f2 | sed 's/[" ,]//g')
+            - |
               grep "author_email\":" setup.json | head -n1 | cut -d ':' -f2 | sed 's/[" ,]//g'
             - |
               MODULE=$(grep "author_email\":" setup.json | head -n1 | cut -d ':' -f2 | sed 's/[" ,]//g')
