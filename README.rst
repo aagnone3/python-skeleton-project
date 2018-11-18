@@ -66,10 +66,19 @@ Or install using pip and GitHub:
 
   pip install -U git+https://github.com/aagnone3/python-skeleton-project.git
 
-Testing
-~~~~~~~
+Local Testing
+~~~~~~~~~~~~~
 
 .. code-block:: bash
 
   make test
   
+Travis Testing
+~~~~~~~~~~~~~~
+
+The `.travis.yml` file and `.ci` directory contain the structure necessary to have Travis_ test the repository upon all branch updates. Some additional steps, however, are needed:
+
+* Enable the repository to be monitored by Travis via your Travis profile.
+* Generate a Github app token, and assign it to the (private) environment variable ${GITHUB_TOKEN} in the Travis environment.
+
+.. _Travis: https://travis-ci.org
