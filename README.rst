@@ -1,9 +1,11 @@
 .. -*- mode: rst -*-
 
+.. role:: bash(code)
+   :language: bash
+
 |Travis|_ |PyPi|_ |TestStatus|_ |PythonVersion|_
 
 .. |Travis| image:: https://travis-ci.org/aagnone3/python-skeleton-project.svg?branch=master
-.. _Travis: https://travis-ci.org/aagnone3/python-skeleton-project
 
 .. |PyPi| image:: https://badge.fury.io/py/python-skeleton-project.svg
 .. _PyPi: https://badge.fury.io/py/python-skeleton-project
@@ -19,6 +21,7 @@ python-skeleton-project
 
 python-skeleton-project is a barebones repository intended as a quick-start for new python
 applications which plan to utilize the following functionalities:
+
 - Unit testing with pytest
 - Continuous integration testing with Travis CI
 - Packaging and publishing to PyPi
@@ -76,9 +79,9 @@ Local Testing
 Travis Testing
 ~~~~~~~~~~~~~~
 
-The `Makefile`, `.travis.yml` file and `.ci` directory contain the structure necessary to have Travis_ test the repository upon all branch updates. Some additional steps, however, are needed:
+The :bash:`Makefile`, :bash:`.travis.yml` file and :bash:`.ci` directory contain the structure necessary to have Travis_ test the repository upon all branch updates. Some additional steps, however, are needed:
 
-* Enable the repository to be monitored by Travis via your Travis profile.
-* Generate a Github app token, and assign it to the (private) environment variable ${GITHUB_TOKEN} in the Travis environment.
+- Enable the repository to be monitored by Travis via your Travis profile.
+- Generate a Github app token, and assign it to the (private) environment variable :bash:`${GITHUB_TOKEN}` in the Travis environment.
 
-.. _Travis: https://travis-ci.org
+.. _Travis: https://travis-ci.org/aagnone3/python-skeleton-project
