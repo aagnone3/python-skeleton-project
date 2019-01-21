@@ -7,8 +7,8 @@ project_name=${1}
 module_name=${2}
 project_dir=../${project_name}
 
-old_project_name=python-skeleton-project-project
-old_module_name=python_skeleton_project_project
+old_project_name=python-skeleton-project
+old_module_name=python_skeleton_project
 
 # TODO detect OSX and alias sed
 
