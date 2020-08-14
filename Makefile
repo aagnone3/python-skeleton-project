@@ -17,7 +17,12 @@ help:
 .PHONY: clean
 clean:
 	rm -rf build/* dist/* *egg-info*
+	pre-commit clean
 	find . -name __pycache__ | xargs rm -rf
+
+.PHONY: init
+init:
+	pre-commit install
 
 .PHONY: build
 build: clean

@@ -1,2 +1,3 @@
 pandas
 numpy
+pre-commit

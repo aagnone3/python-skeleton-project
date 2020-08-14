@@ -1,7 +1,7 @@
 language: python
 
 python:
-    - '3.5'
+    - '3.8'
 
 env:
     global:
@@ -11,11 +11,9 @@ env:
         - |
           MODULE=$(grep "module_name\":" setup.json | head -n1 | cut -d ':' -f2 | sed 's/[" ,]//g')
 
-# TODO install in a Docker container
-addons:
-    apt:
-        packages:
-            - libexempi3
+cache:
+    directories:
+        - $HOME/.cache/pre-commit
 
 install:
     - bash .ci/install.sh
