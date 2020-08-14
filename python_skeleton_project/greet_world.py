@@ -7,5 +7,5 @@ def greet_world(descriptor=None):
     sys.stdout.write("Hello, World!\n")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     greet_world()
