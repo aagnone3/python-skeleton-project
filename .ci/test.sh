@@ -1,6 +1,8 @@
 #!/bin/bash
 set -eoxu pipefail
 
+TEST_DIR=${1:-/tmp/module_testing}
+
 # ensure a clean temporary test directory
 function ensure_clean_test_dir() {
     [[ -d ${TEST_DIR} ]] && rm -rf ${TEST_DIR}
@@ -9,14 +11,14 @@ function ensure_clean_test_dir() {
 
 function do_test() {
     cd ${TEST_DIR}
-    PYTHONPATH=${PYTHONPATH:=}:${TRAVIS_BUILD_DIR} \
+    PYTHONPATH=${PYTHONPATH:=}:${GITHUB_WORKSPACE} \
         py.test \
         --cov=${MODULE} \
         -xvs \
         --pyargs ${MODULE} \
-        ${TRAVIS_BUILD_DIR}
+        ${GITHUB_WORKSPACE}
 
-    cp ${TEST_DIR}/.coverage ${TRAVIS_BUILD_DIR}
+    cp ${TEST_DIR}/.coverage ${GITHUB_WORKSPACE}
 }
 
 ensure_clean_test_dir
