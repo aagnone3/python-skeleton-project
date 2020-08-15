@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eoxu pipefail
 
-cd ${TRAVIS_BUILD_DIR}/docs
+cd ${GITHUB_WORKSPACE}/docs
 sphinx-apidoc \
     -d 100 \
     -f \
@@ -9,6 +9,7 @@ sphinx-apidoc \
     -e \
     -P \
     -o "source" \
-    ${TRAVIS_BUILD_DIR}/${MODULE}
+    ${GITHUB_WORKSPACE}/${MODULE}
 
 make html
+ls -R
