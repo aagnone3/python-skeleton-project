@@ -2,14 +2,15 @@ python\_skeleton\_project.tools package
 =======================================
 
 .. automodule:: python_skeleton_project.tools
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
 
 Submodules
 ----------
 
 .. toctree::
+   :maxdepth: 100
 
    python_skeleton_project.tools.hello_world
-

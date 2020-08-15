@@ -2,6 +2,7 @@ python\_skeleton\_project.version module
 ========================================
 
 .. automodule:: python_skeleton_project.version
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:

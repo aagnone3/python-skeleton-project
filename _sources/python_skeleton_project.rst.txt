@@ -2,22 +2,24 @@ python\_skeleton\_project package
 =================================
 
 .. automodule:: python_skeleton_project
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
 
 Subpackages
 -----------
 
 .. toctree::
+   :maxdepth: 100
 
-    python_skeleton_project.tools
+   python_skeleton_project.tools
 
 Submodules
 ----------
 
 .. toctree::
+   :maxdepth: 100
 
    python_skeleton_project.greet_world
    python_skeleton_project.version
-
