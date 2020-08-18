@@ -26,7 +26,7 @@ def get_version(module_name):
 
 
 def get_data_files():
-    data_files = ["README.rst"]
+    data_files = ["README.md"]
     if path.isdir("conf"):
         data_files.extend(glob(path.join("conf", "*")))
     return data_files
