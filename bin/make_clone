@@ -26,8 +26,8 @@ function update_module() {
 }
 
 function update_readme() {
-    sed -i '/is a barebones repository/d' README.rst
-    sed -i '/which plan to utilize/d' README.rst
+    sed -i '/is a barebones repository/d' README.md
+    sed -i '/which plan to utilize/d' README.md
 }
 
 # need to delete the project directory if it already exists.
